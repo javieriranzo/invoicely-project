@@ -1,1 +1,22 @@
-<p>menu-superior works!</p>
+<nav class="navbar">
+    <div class="nav-container">
+      <!-- Menú de navegación -->
+      <ul class="nav-list">
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/pantalla-facturas">Facturas</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/pantalla-clientes">Clientes</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/pantalla-productos">Productos</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active">
+          <a routerLink="/pantalla-listado-facturas">Listado de facturas</a>
+        </li>
+      </ul>
+      
+      <!-- Botón de cerrar sesión, alineado a la derecha -->
+      <ul class="nav-right">
+        <li><a routerLink="/logout">Cerrar sesión</a></li>
+      </ul>

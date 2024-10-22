@@ -1,0 +1,80 @@
+h1 {
+    text-align: center;         /* Asegura que el texto esté centrado */
+    margin: 0 auto;            /* Centra el elemento si tiene un ancho definido */
+    width: fit-content;         /* El ancho del h1 se ajusta al contenido */
+    font-family: 'Source Code Pro', monospace;
+    font-size: 80px;
+}
+
+/* Contenedor del login */
+.login-container {
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-family: 'Source Code Pro', monospace;
+}
+
+/* Caja del login */
+.login-box {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    width: 620px;
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: #ccc;
+}
+
+/* Estilo de los campos de entrada */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: none;
+    border-radius: 20px;
+    color: black;
+    font-size: 16px;
+    font-family: 'Source Code Pro', monospace;
+    outline: none;
+}
+
+input::placeholder {
+    font-family: 'Source Code Pro', monospace;
+    color: #999;
+    padding-left: 15px;
+}
+
+
+/* Estilos del botón de login */
+.login-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.login-btn:hover {
+    background-color: #333;
+}

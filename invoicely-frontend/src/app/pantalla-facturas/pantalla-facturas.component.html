@@ -1,2 +1,120 @@
-
-<p>pantalla-facturas works!</p>
+<div class="invoice-container">
+    <!-- Detalles de la factura -->
+    <div class="invoice-details">
+      <h2>CREAR FACTURA</h2>
+      
+      <div class="input-group">
+        <label for="cliente">Cliente</label>
+        <div class="cliente-input-wrapper">
+            <input type="text" id="cliente" placeholder="Seleccionar cliente" />
+            <button class="buscar-cliente-btn">Buscar cliente</button>
+        </div>
+      </div>
+  
+      <div class="input-group">
+        <label for="asunto">Asunto</label>
+        <input type="text" id="asunto" placeholder="Servicio por Junio 2023" />
+      </div>
+  
+      <div class="input-group">
+        <label for="fecha">Fecha de Vencimiento</label>
+        <input type="date" id="fecha" value="2023-11-10" />
+      </div>
+  
+      <div class="input-group">
+        <label for="moneda">Moneda</label>
+        <select id="moneda">
+          <option value="idr">IDR - Rupia Indonesia</option>
+          <!-- Otras monedas -->
+        </select>
+      </div>
+  
+      <div class="product-section">
+        <h3>Producto</h3>
+        <div class="input-group product-item">
+          <label for="producto-descripcion">Descripción</label>
+          <input type="text" id="producto-descripcion" placeholder="Camiseta Summer 2K23" />
+  
+          <label for="producto-cantidad">Cantidad</label>
+          <input type="number" id="producto-cantidad" value="1" />
+  
+          <label for="producto-precio">Precio</label>
+          <input type="number" id="producto-precio" value="125000" />
+  
+          <label for="producto-impuesto">Impuesto</label>
+          <select id="producto-impuesto">
+            <option value="10">10%</option>
+            <!-- Otras opciones de impuestos -->
+          </select>
+          <button class="remove-item">Eliminar</button>
+        </div>
+  
+        <button class="add-product-line">Agregar Línea</button>
+        
+        <div class="input-group">
+          <input type="checkbox" id="add-discount" />
+          <label for="add-discount">Agregar Descuento</label>
+        </div>
+  
+        <div class="input-group">
+          <label for="discount-reason">Razón del Descuento</label>
+          <input type="text" id="discount-reason" placeholder="Oferta de Verano 10%" />
+        </div>
+      </div>
+  
+      <div class="action-buttons">
+        <button class="cancel-btn">Cancelar</button>
+        <button class="process-btn">Procesar Factura</button>
+      </div>
+    </div>
+  
+    <!-- Vista previa de la factura
+    <div class="invoice-preview">
+      <h2>VISTA PREVIA</h2>
+      
+      <div class="preview-header">
+        <button class="preview-btn">PDF</button>
+        <button class="preview-btn">Correo</button>
+        <button class="preview-btn">Página de Pago</button>
+      </div>
+  
+      <div class="preview-content">
+        <p><strong>Factura N°:</strong> INV2398-08-087</p>
+        <p><strong>Fecha de Vencimiento:</strong> 10 Noviembre 2023</p>
+        <p><strong>Asunto:</strong> Servicio por Junio 2023</p>
+        <p><strong>Cliente:</strong> John Smith (john_sgmail.com)</p>
+  
+        <table class="preview-table">
+          <thead>
+            <tr>
+              <th>Descripción</th>
+              <th>Cantidad</th>
+              <th>Precio Unitario</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Camiseta Summer 2K23</td>
+              <td>1</td>
+              <td>125.000 IDR</td>
+              <td>125.000 IDR</td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <div class="summary">
+          <p>Subtotal: 125.000 IDR</p>
+          <p>Descuento: -12.500 IDR (10%)</p>
+          <p>Total: 112.500 IDR</p>
+          <p><strong>Importe a pagar:</strong> 112.500 IDR</p>
+        </div>
+  
+        <div class="attachment">
+          <p><strong>Adjunto:</strong> Lista de productos</p>
+          <button class="download-btn">Descargar PDF</button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  

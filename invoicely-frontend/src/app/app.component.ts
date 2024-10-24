@@ -6,6 +6,7 @@ import { PantallaClientesComponent } from './pantalla-clientes/pantalla-clientes
 import { PantallaFacturasComponent } from './pantalla-facturas/pantalla-facturas.component';
 import { PantallaListadoFacturasComponent } from './pantalla-listado-facturas/pantalla-listado-facturas.component';
 import { PantallaLoginComponent } from './pantalla-login/pantalla-login.component';
+import { PopupCerrarSesionComponent } from './popup-cerrar-sesion/popup-cerrar-sesion.component';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -18,7 +19,8 @@ import { Router, NavigationEnd } from '@angular/router';
     PantallaClientesComponent,
     PantallaFacturasComponent,
     PantallaListadoFacturasComponent,
-    PantallaLoginComponent
+    PantallaLoginComponent,
+    PopupCerrarSesionComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

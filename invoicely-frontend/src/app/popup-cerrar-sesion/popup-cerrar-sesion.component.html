@@ -1,0 +1,11 @@
+<div class="popup-overlay" *ngIf="showPopup">
+    <div class="popup-box">
+      <h2>Cerrar sesión</h2>
+      <p>¿Quieres cerrar sesión?</p>
+      <div class="popup-buttons">
+        <button class="btn-confirm" (click)="logout()">Sí</button>
+        <button class="btn-cancel" (click)="closePopup()">No</button>
+      </div>
+    </div>
+</div>
+  

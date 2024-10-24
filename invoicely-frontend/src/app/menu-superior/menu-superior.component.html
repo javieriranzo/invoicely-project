@@ -18,5 +18,9 @@
       
       <!-- Botón de cerrar sesión, alineado a la derecha -->
       <ul class="nav-right">
-        <li><a routerLink="/logout">Cerrar sesión</a></li>
+        <li (click)="showLogoutPopup = true"><a>Cerrar sesión</a></li>
       </ul>
+      <!-- Pop-up para cerrar sesión -->
+      <app-popup-cerrar-sesion *ngIf="showLogoutPopup" (closePopupEvent)="showLogoutPopup = false"></app-popup-cerrar-sesion>
+    </div>
+</nav>

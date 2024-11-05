@@ -1,176 +1,38 @@
+/* Contenedor de la factura */
 .invoice-container {
-    display: flex;
-    justify-content: center;
-    font-family: 'Source Code Pro', monospace;
-    padding-left: 70px;
-    padding-right: 70px;
-  }
-  
-  .invoice-details {
-    width: 100%;
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-  }
-  
-  .invoice-preview {
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    color: black;
-  }
-  
-  h2 {
-    font-size: 30px;
-    color: black;
-    margin-bottom: 20px;
-  }
+  font-size: 15px;
+}
 
-/* Contenedor del input y el botón */
-.cliente-input-wrapper {
-    position: relative;
-    width: 100%;
-  }
-  
-  /* Estilo del input */
-  .cliente-input-wrapper input {
-    width: 100%;
-    padding: 10px;
-    padding-right: 120px; /* Espacio reservado para el botón */
-    font-size: 16px;
-    border-radius: 5px;
-    border: none;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
-    font-family: 'Source Code Pro', monospace;
-  }
-  
-  /* Estilo del botón */
-  .buscar-cliente-btn {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: 100%;
-    padding: 0 15px;
-    background-color: #333;
-    color: white;
-    border: none;
-    border-radius: 0 5px 5px 0;
-    cursor: pointer;
-    font-size: 14px;
-    font-family: 'Source Code Pro', monospace;
-  }
-  
-  .buscar-cliente-btn:hover {
-    background-color: #555;
-  }
-  
-  .input-group {
-    margin-bottom: 15px;
-  }
-  
-  .input-group label {
-    display: block;
-    font-size: 14px;
-    color: black;
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .input-group input,
-  .input-group select {
-    width: 100%;
-    padding: 20px;
-    border-radius: 10px;
-    border: none;
-    font-size: 16px;
-    font-family: 'Source Code Pro', monospace;
+/* Botón de búsqueda de cliente */
+.btn-general {
+  font-size: 16px;
+  font-weight: bolder;
+  padding: 10px 20px;
+}
 
-  }
-  
-  .product-item {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-  }
-  
-  .add-product-line, .remove-item, .cancel-btn, .process-btn {
-    padding: 10px 15px;
-    font-size: 14px;
-    color: white;
-    background-color: #333;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .remove-item {
-    background-color: #FF2800;
-  }
-  
-  .cancel-btn {
-    background-color: #999;
-  }
-  
-  .process-btn {
-    background-color: #00A86B;
-  }
-  
-  .preview-btn {
-    padding: 10px;
-    font-size: 14px;
-    background-color: #555;
-    color: white;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .preview-btn:hover {
-    background-color: #333;
-  }
-  
-  .preview-header {
-    margin-bottom: 20px;
-  }
-  
-  .preview-content p {
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
-  
-  .preview-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: 20px;
-  }
-  
-  .preview-table th, .preview-table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  .summary p {
-    font-size: 16px;
-  }
-  
-  .attachment {
-    margin-top: 20px;
-  }
-  
-  .download-btn {
-    padding: 10px;
-    font-size: 14px;
-    background-color: #555;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .download-btn:hover {
-    background-color: #333;
-  }
-  
+/* Campos deshabilitados de cliente */
+.cliente-info .form-control[disabled] {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+/* Estilos para el encabezado de la factura */
+h1 {
+  font-size: 50px;
+  color: #333;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+/* Espaciado entre los botones de acción */
+.form-group.d-flex .btn {
+  min-width: 120px;
+}
+
+/* Estilo adicional para los campos de la factura */
+.form-group label {
+  font-weight: 600;
+}

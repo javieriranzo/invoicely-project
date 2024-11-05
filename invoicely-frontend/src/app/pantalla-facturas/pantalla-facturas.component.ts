@@ -14,37 +14,23 @@ import { CommonModule } from '@angular/common';
 })
 
 export class PantallaFacturasComponent {
-  // Tu lógica de la factura
-  factura = {
-    cliente: '',
-    fecha: '',
-    items: [
-      { descripcion: '', cantidad: 1, precio: 0 }
-    ]
-  };
+  currentYear: number;
+  currentDate: string;
+  
+  precioProducto: number = 100; // Valor inicial del precio producto, puede ser dinámico
+  cantidad: number = 0;
+  precioTotal: number = 0;
 
-  agregarItem() {
-    this.factura.items.push({ descripcion: '', cantidad: 1, precio: 0 });
+  calcularPrecioTotal(): void {
+    this.precioTotal = this.precioProducto * this.cantidad;
   }
 
-  calcularTotal() {
-    return this.factura.items.reduce((total, item) => total + (item.cantidad * item.precio), 0);
-  }
-
-  onSubmit() {
-    alert('Factura guardada exitosamente');
-    console.log(this.factura);
-  }
-
-  onCancelar() {
-    if (confirm('¿Estás seguro de cancelar la creación de la factura?')) {
-      this.factura = {
-        cliente: '',
-        fecha: '',
-        items: [
-          { descripcion: '', cantidad: 1, precio: 0 }
-        ]
-      };
-    }
+  constructor() {
+    // Asignamos el año actual a `currentYear`
+    this.currentYear = new Date().getFullYear();
+    
+    // Fecha actual
+    const today = new Date();
+    this.currentDate = today.toISOString().split('T')[0];  
   }
 }

@@ -1,92 +1,38 @@
+/* Fondo translúcido para el menú */
 .navbar {
   background-color: rgba(0, 0, 0, 0.7); /* Fondo translúcido */
-  color: white;
-  width: 100%;
-  position: fixed;  /* Menú fijo en la parte superior */
-  top: 0;
-  left: 0;
-  z-index: 1000;  /* Colocar encima del resto del contenido */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37); /* Sombra para dar profundidad */
-  backdrop-filter: blur(8px); /* Agregar efecto de desenfoque en el fondo */
-  -webkit-backdrop-filter: blur(8px); /* Para compatibilidad con Safari */
-  font-family: 'Source Code Pro', monospace;
-  padding: 5px 0; /* Añadir algo de padding en la parte superior e inferior */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37); /* Sombra */
+  backdrop-filter: blur(8px); /* Desenfoque en el fondo */
+  -webkit-backdrop-filter: blur(8px); /* Compatibilidad con Safari */
 }
 
-.main-content {
-  padding-top: 90px; /* Ajustar padding para la altura del menú */
-}
-
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 2rem;
-}
-
-.nav-list, .nav-right {
-  list-style-type: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-list li, .nav-right li {
-  margin-right: 2rem;
-}
-
-.nav-list li a, .nav-right li a {
-  text-decoration: none;
+/* Hover para enlaces del menú */
+.navbar-nav .nav-link {
   color: white; /* Texto en blanco */
-  font-size: 20px;
-  padding: 20px 20px;
-  border-radius: 20px; /* Bordes redondeados */
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 8px;
   transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.nav-list li a:hover, .nav-right li a:hover {
-  background-color: rgba(180, 169, 169, 0.1); /* Hover con fondo blanco translúcido */
+.navbar-nav .nav-link:hover {
+  background-color: rgba(180, 169, 169, 0.1); /* Fondo blanco translúcido en hover */
   color: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra al hacer hover */
-}
-
-.nav-right li a:hover {
-  background-color: #FF2800; /* Rojo Ferrari en "Cerrar sesión" */
-  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra en hover */
 }
 
 /* Estilo para el menú activo */
-.nav-item.active a {
-  background-color: lightslategray; /* Fondo azul translúcido para la página activa */
-  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
-  color: white;  /* Texto en blanco */
+.navbar-nav .nav-item.active .nav-link {
+  background-color: lightslategray; /* Color de fondo en la página activa */
+  color: white;
 }
 
-/* Alinear "Cerrar sesión" a la derecha */
-.nav-right {
-  margin-left: auto;
+/* Estilo específico para el botón de "Cerrar sesión" */
+.navbar-nav .cerrar-sesion {
+  color: white;
 }
 
-.nav-right li {
-  margin-right: 4rem; /* Agregar un margen a la izquierda para "Cerrar sesión" */
-}
-
-/* Responsive: Mostrar hamburguesa en pantallas pequeñas */
-@media screen and (max-width: 768px) {
-  .nav-list, .nav-right {
-    display: none; /* Esconder los menús en pantallas pequeñas */
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .nav-list li, .nav-right li {
-    margin-right: 0;
-    margin-bottom: 1rem;
-  }
-
-  /* Mostrar el menú cuando se activa el menú hamburguesa */
-  .nav-list.active, .nav-right.active {
-    display: flex;
-  }
+.navbar-nav .cerrar-sesion:hover {
+  background-color: #FF2800; /* Color rojo en hover */
+  color: white;
 }

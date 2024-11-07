@@ -1,0 +1,69 @@
+/* Estilos del overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001;
+}
+
+/* Caja del pop-up */
+.popup-box {
+  background: #ffffff;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  color: #333;
+  text-align: left;
+  width: 90%; /* Ancho amplio para acomodar la tabla */
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: flex-end; /* Botones alineados a la derecha */
+  font-weight: bolder;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Estilos de la tabla */
+.popup-box table {
+  width: 100%;
+  border-collapse: collapse;
+  padding: 50px;
+  margin-top: 15px;
+  border-radius: 50px;
+}
+
+.popup-box th, .popup-box td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.popup-box th {
+  background-color: #f8f9fa;
+  font-weight: bold;
+}
+
+.popup-box td {
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.popup-box tr.selected {
+  background-color: #e6f7ff; /* Color de fila seleccionada */
+}
+
+input[type=radio] {
+  width: 20px;
+  height: 20px;
+  align-items: center;
+}

@@ -5,7 +5,7 @@ import { PantallaClientesComponent } from './pantalla-clientes/pantalla-clientes
 import { PantallaProductosComponent } from './pantalla-productos/pantalla-productos.component';
 import { PantallaLoginComponent } from './pantalla-login/pantalla-login.component';
 
-export const routes: Routes = [
+export const APP_ROUTES: Routes = [
     { path: 'pantalla-facturas', component: PantallaFacturasComponent },
     { path: 'pantalla-listado-facturas', component: PantallaListadoFacturasComponent },
     { path: 'pantalla-clientes', component: PantallaClientesComponent },

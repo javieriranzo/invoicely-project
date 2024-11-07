@@ -1,0 +1,10 @@
+<div class="popup-overlay" *ngIf="showPopup">
+    <div class="popup-box">
+      <h2>Añadir nuevo producto a facturar</h2>
+      <p>Elige producto para añadir:</p>
+      <div class="popup-buttons">
+        <button class="btn btn-success btn-general">Seleccionar cliente</button>
+        <button class="btn btn-danger btn-general mr-2" (click)="closePopup()">Cancelar</button>
+      </div>
+    </div>
+</div>

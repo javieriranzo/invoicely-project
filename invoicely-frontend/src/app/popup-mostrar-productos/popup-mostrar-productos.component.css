@@ -1,0 +1,62 @@
+/* Estilos del overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1001; /* Asegurarse de que esté sobre el resto de los elementos */
+}
+
+/* Caja del pop-up */
+.popup-box {
+  background: #ffffff; /* Fondo sólido para mejorar la legibilidad de la tabla */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); /* Sombra suave */
+  color: #333;
+  text-align: left; /* Alineación izquierda para texto en tablas */
+  width: 600px; /* Ancho más amplio para acomodar la tabla */
+  max-height: 80vh; /* Altura máxima para evitar que sobrepase la pantalla */
+  overflow-y: auto; /* Desplazamiento vertical si el contenido excede la altura */
+}
+
+/* Estilos de los botones */
+.popup-buttons {
+  display: flex;
+  justify-content: flex-end; /* Botones alineados a la derecha */
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Remueve estilos personalizados de los botones y aplica las clases Bootstrap */
+.popup-buttons .btn-confirm {
+  /* Clase de Bootstrap para botón primario */
+  font-size: 16px;
+}
+
+/* Estilos para la tabla dentro del pop-up */
+.popup-box table {
+  width: 100%; /* Tabla ocupa todo el ancho */
+  border-collapse: collapse; /* Colapsa bordes para estilo limpio */
+  margin-top: 15px;
+}
+
+.popup-box th, .popup-box td {
+  padding: 10px;
+  border: 1px solid #ddd; /* Borde gris claro */
+  text-align: left;
+}
+
+.popup-box th {
+  background-color: #f8f9fa; /* Color de fondo de encabezado */
+  font-weight: bold;
+}
+
+.popup-box td {
+  background-color: #ffffff; /* Fondo blanco para las celdas */
+}

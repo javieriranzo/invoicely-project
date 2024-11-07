@@ -7,6 +7,8 @@ import { PantallaFacturasComponent } from './pantalla-facturas/pantalla-facturas
 import { PantallaListadoFacturasComponent } from './pantalla-listado-facturas/pantalla-listado-facturas.component';
 import { PantallaLoginComponent } from './pantalla-login/pantalla-login.component';
 import { PopupCerrarSesionComponent } from './popup-cerrar-sesion/popup-cerrar-sesion.component';
+import { PopupMostrarProductosComponent } from './popup-mostrar-productos/popup-mostrar-productos.component';
+import { PopupMostrarClientesComponent } from './popup-mostrar-clientes/popup-mostrar-clientes.component';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -20,7 +22,9 @@ import { Router, NavigationEnd } from '@angular/router';
     PantallaFacturasComponent,
     PantallaListadoFacturasComponent,
     PantallaLoginComponent,
-    PopupCerrarSesionComponent
+    PopupCerrarSesionComponent,
+    PopupMostrarProductosComponent,
+    PopupMostrarClientesComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'

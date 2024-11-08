@@ -36,3 +36,7 @@ h3 {
 .form-group label {
   font-weight: 600;
 }
+
+.btn-deleteInvoiceLine {
+  margin-top: 29px;
+}

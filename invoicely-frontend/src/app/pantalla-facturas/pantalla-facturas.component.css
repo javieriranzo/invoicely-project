@@ -10,6 +10,10 @@
   padding: 10px 20px;
 }
 
+.btn-eliminar-producto {
+  font-weight: bolder;
+}
+
 /* Campos deshabilitados de cliente */
 .cliente-info .form-control[disabled] {
   background-color: #e9ecef;

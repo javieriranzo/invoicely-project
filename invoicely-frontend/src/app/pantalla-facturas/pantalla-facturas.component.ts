@@ -1,52 +1,41 @@
-import { Component, ViewChild } from '@angular/core';
-import { FormsModule } from '@angular/forms';  // Importar FormsModule directamente
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';  
 import { CommonModule } from '@angular/common';
 import { PopupMostrarProductosComponent } from '../popup-mostrar-productos/popup-mostrar-productos.component';
 import { PopupMostrarClientesComponent } from '../popup-mostrar-clientes/popup-mostrar-clientes.component';
 
 @Component({
   selector: 'app-pantalla-facturas',
-  standalone: true,  // Declarar como standalone component
+  standalone: true,
   imports: [
     FormsModule,
     CommonModule,
     PopupMostrarProductosComponent,
     PopupMostrarClientesComponent
-  ],  // Importar FormsModule aquí
+  ],
   templateUrl: './pantalla-facturas.component.html',
   styleUrls: ['./pantalla-facturas.component.css']
 })
 
 export class PantallaFacturasComponent {
-  
   // Modales
-  showPopupProductos = false; 
-  showPopupClientes = false; 
+  mostrarPopupProductos = false;
+  mostrarPopupClientes = false;
 
-  abrirPopupClientes() {
-    this.showPopupClientes = true;
-  }
+  // Datos básicos de la factura
+  numeroFactura: number = 0;
+  anoActual: number = new Date().getFullYear();
+  fechaActual: string = new Date().toISOString().split('T')[0]; // Fecha en formato ISO para el input date
 
-  // Datos de factura
-  currentYear: number;
-  currentDate: string;
+  // Datos de cálculo de factura
+  totalFactura: number = 0;
+  descuentoFactura: number = 0;
+  iva: number = 21;  // Presuponiendo IVA al 21%
+  totalConIVA: number = 0;
   
   // Array para almacenar las líneas de productos seleccionados en la factura
   lineasFactura: any[] = [];
-
-  // Total de la factura
-  totalFactura: number = 0;
-
-  constructor() {
-    // Asignamos el año actual a `currentYear`
-    this.currentYear = new Date().getFullYear();
     
-    // Fecha actual
-    const today = new Date();
-    this.currentDate = today.toISOString().split('T')[0];  
-  }
-
-  // Datos del cliente en el formulario
   cliente = {
     nombre: '',
     apellido: '',
@@ -60,49 +49,59 @@ export class PantallaFacturasComponent {
     email: ''
   };
 
-  // Datos del producto en el formulario 
-  producto = {
-    nombre: '', 
-    descripcion: '',
-    precio: 0
-  };
+  constructor() {}
+
+  abrirPopupClientes() {
+    this.mostrarPopupClientes = true;
+  }
 
   actualizarDatosCliente(clienteSeleccionado: any) {
     this.cliente = { ...clienteSeleccionado };
-    // Cierra el popup después de seleccionar el cliente
-    this.showPopupClientes = false; 
+    this.mostrarPopupClientes = false;
   }
 
   actualizarDatosProducto(productoSeleccionado: any) {
-    // Añadir una nueva línea de producto a `lineasFactura`
     this.lineasFactura.push({
       nombre: productoSeleccionado.nombre,
       descripcion: productoSeleccionado.descripcion,
       precio: productoSeleccionado.precio,
-      cantidad: 1, // Inicializar con cantidad 1
-      total: productoSeleccionado.precio // Total inicial es precio * cantidad
+      cantidad: 1,
+      total: productoSeleccionado.precio
     });
-    this.calcularTotalFactura(); // Recalcular el total de la factura
-    // Cierra el popup después de seleccionar el producto
-    this.showPopupProductos = false; 
+    this.calcularTotalFactura();
+    this.mostrarPopupProductos = false;
   }
 
   calcularTotalFactura() {
-    // Calcular el total de la factura sumando cada línea de producto (precio * cantidad)
-    this.totalFactura = this.lineasFactura.reduce((total, linea) => {
-      return total + (linea.precio * (linea.cantidad || 0));
+    const subtotal = this.lineasFactura.reduce((total, linea) => {
+      return total + (linea.precio * linea.cantidad);
     }, 0);
+    const descuento = (this.descuentoFactura / 100) * subtotal;
+    this.totalFactura = subtotal - descuento;
+
+    // Calcular el total con IVA
+    this.totalConIVA = this.totalFactura * (1 + this.iva / 100);
   }
 
-  // Método para actualizar el total cuando cambia la cantidad de un producto
+  actualizarDescuentoFactura(event: Event): void {
+    const inputElement = event.target as HTMLInputElement;
+    this.descuentoFactura = parseFloat(inputElement.value) || 0;
+    this.calcularTotalConIVA();
+  }
+
+  calcularTotalConIVA(): void {
+    const descuento = (this.totalFactura * this.descuentoFactura) / 100;
+    const totalConDescuento = this.totalFactura - descuento;
+    this.totalConIVA = totalConDescuento * (1 + this.iva / 100);
+  }
+
   actualizarCantidad(linea: any) {
     linea.total = linea.precio * linea.cantidad;
-    this.calcularTotalFactura(); // Recalcular el total general
+    this.calcularTotalFactura();
   }
 
-  // Método para eliminar una línea de producto
   eliminarLinea(index: number) {
-    this.lineasFactura.splice(index, 1); // Eliminar línea de producto
-    this.calcularTotalFactura(); // Recalcular el total de la factura
+    this.lineasFactura.splice(index, 1);
+    this.calcularTotalFactura();
   }
 }

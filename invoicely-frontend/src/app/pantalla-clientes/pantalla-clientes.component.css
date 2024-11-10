@@ -15,17 +15,17 @@ h1 {
     color: #333;
   }
   
-  h3 {
+h3 {
     font-size: 20px;
     font-weight: bolder;
-  }
+}
   
-  /* Espaciado entre los botones de acción */
-  .form-group.d-flex .btn {
-    min-width: 120px;
-  }
+/* Espaciado entre los botones de acción */
+.form-group.d-flex .btn {
+  min-width: 120px;
+}
   
-  /* Estilo adicional para los campos de la factura */
-  .form-group label {
-    font-weight: 600;
-  }
+/* Estilo adicional para los campos de la factura */
+.form-group label {
+  font-weight: 600;
+}

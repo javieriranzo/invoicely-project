@@ -26,12 +26,14 @@ export class PantallaFacturasComponent {
   numeroFactura: number = 0;
   anoActual: number = new Date().getFullYear();
   fechaActual: string = new Date().toISOString().split('T')[0]; // Fecha en formato ISO para el input date
+  horaActual: string = new Date().toTimeString().slice(0, 5);
 
   // Datos de cálculo de factura
   totalFactura: number = 0;
   descuentoFactura: number = 0;
   iva: number = 21;  // Presuponiendo IVA al 21%
   totalConIVA: number = 0;
+  totalConDescuento: number = 0;
   
   // Array para almacenar las líneas de productos seleccionados en la factura
   lineasFactura: any[] = [];
@@ -90,9 +92,12 @@ export class PantallaFacturasComponent {
   }
 
   calcularTotalConIVA(): void {
+    // Calcular el total con descuento sobre el precio original
     const descuento = (this.totalFactura * this.descuentoFactura) / 100;
-    const totalConDescuento = this.totalFactura - descuento;
-    this.totalConIVA = totalConDescuento * (1 + this.iva / 100);
+    this.totalConDescuento = this.totalFactura - descuento;
+
+    // Aplicar el IVA solo al total después de descuento
+    this.totalConIVA = this.totalConDescuento * (1 + this.iva / 100);
   }
 
   actualizarCantidad(linea: any) {
@@ -104,4 +109,6 @@ export class PantallaFacturasComponent {
     this.lineasFactura.splice(index, 1);
     this.calcularTotalFactura();
   }
+
+
 }

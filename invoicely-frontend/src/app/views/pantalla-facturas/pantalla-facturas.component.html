@@ -130,19 +130,19 @@
         <label>TOTAL</label>
       </div>
     </div>
-    <div *ngFor="let linea of lineasFactura; let i = index" class="product-info">
+    <div *ngFor="let linea of factura.lineas; let i = index" class="linea-factura">
       <div class="form-row">
         <div class="form-group col-md-6">
-          <input type="text" class="form-control" [(ngModel)]="linea.nombre" disabled />
+          <input type="text" class="form-control" [(ngModel)]="linea.nombre" placeholder="Producto" disabled />
         </div>
         <div class="form-group col-md-2">
           <div class="input-group">
-            <input type="number" class="form-control" [(ngModel)]="linea.precio" disabled />
+            <input type="number" class="form-control" [(ngModel)]="linea.precio" (ngModelChange)="actualizarCantidad(linea)" disabled />
             <span class="input-group-text">€</span>
           </div>
         </div>
         <div class="form-group col-md-1">
-          <input type="number" class="form-control" [(ngModel)]="linea.cantidad" (input)="actualizarCantidad(linea)" min="1" />
+          <input type="number" class="form-control" [(ngModel)]="linea.cantidad" (ngModelChange)="actualizarCantidad(linea)" min="1" />
         </div>
         <div class="form-group col-md-2">
           <div class="input-group">
@@ -166,40 +166,40 @@
       <div class="form-group col-md-3">
         <label>DESCUENTO</label>
         <div class="input-group">
-          <input type="number" class="form-control" [(ngModel)]="descuentoFactura" min="0" max="100" />
+          <input type="number" class="form-control" [(ngModel)]="factura.descuento" (ngModelChange)="actualizarDescuentoFactura()" min="0" max="100" />
           <span class="input-group-text">%</span>
         </div>
       </div>
       <div class="form-group col-md-3">
         <label>BASE IMPONIBLE</label>
         <div class="input-group">
-          <input type="text" class="form-control" [(ngModel)]="totalFactura" disabled />
+          <input type="text" class="form-control" [(ngModel)]="factura.subtotal" disabled />
           <span class="input-group-text">€</span>
         </div>
       </div>
       <div class="form-group col-md-3">
         <label>PRECIO CON DESCUENTO</label>
         <div class="input-group">
-          <input type="text" class="form-control" [(ngModel)]="totalFactura"  disabled />
+          <input type="text" class="form-control" [(ngModel)]="factura.totalConDescuento" disabled />
           <span class="input-group-text">€</span>
         </div>
       </div>
       <div class="form-group col-md-3">
         <label>IVA</label>
         <div class="input-group">
-          <input type="text" class="form-control" [(ngModel)]="iva" disabled />
+          <input type="number" class="form-control" [(ngModel)]="factura.iva" (ngModelChange)="factura.actualizarTotalConIVA()" />
           <span class="input-group-text">%</span>
         </div>
       </div>
       <div class="form-group col-md-6">
         <label>TOTAL</label>
         <div class="input-group">
-          <input type="text" class="form-control" [(ngModel)]="totalConIVA" disabled />
+          <input type="text" class="form-control" [(ngModel)]="factura.totalConIVA" disabled />
           <span class="input-group-text">€</span>
         </div>
       </div>
     </div>
-
+    
   </section>
 
   <hr>

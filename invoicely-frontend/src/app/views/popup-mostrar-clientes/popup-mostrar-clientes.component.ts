@@ -1,7 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ClienteService } from '../services/cliente.service';
+import { ClienteService } from '../../services/cliente.service';
+import { Cliente } from '../../models/cliente.model';
 
 @Component({
   selector: 'app-popup-mostrar-clientes',
@@ -16,12 +17,12 @@ import { ClienteService } from '../services/cliente.service';
 export class PopupMostrarClientesComponent implements OnInit {
 
   @Output() closePopupEvent = new EventEmitter<void>(); // Evento para cerrar el popup
-  @Output() clienteSeleccionado = new EventEmitter<any>(); // Evento para emitir el cliente seleccionado
+  @Output() clienteSeleccionado = new EventEmitter<Cliente>(); // Evento para emitir el cliente seleccionado
   
   showPopupClientes = true; // Mostrar el pop-up
 
-  clientes: any[] = [];
-  clienteSeleccionadoObj: any; // Almacena temporalmente el cliente seleccionado
+  clientes: Cliente[] = []; // Cambiado de any[] a Cliente[]
+  clienteSeleccionadoObj: Cliente | null = null; // Cambiado de any a Cliente | null
 
   constructor(private clienteService: ClienteService) { }
 
@@ -32,12 +33,12 @@ export class PopupMostrarClientesComponent implements OnInit {
   // Método para obtener los clientes desde el servicio
   obtenerClientes() {
     this.clienteService.getClientes().subscribe(
-      (data) => this.clientes = data,
+      (data: Cliente[]) => this.clientes = data, // Se asegura que data es de tipo Cliente[]
       (error) => console.error('Error al obtener clientes:', error)
     );
   }
 
-  seleccionarCliente(cliente: any) {
+  seleccionarCliente(cliente: Cliente) {
     this.clienteSeleccionadoObj = cliente;
   }
 

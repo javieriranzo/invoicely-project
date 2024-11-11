@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ProductoService } from '../services/producto.service';
+import { ProductoService } from '../../services/producto.service';
 
 @Component({
   selector: 'app-popup-mostrar-productos',

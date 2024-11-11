@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { MenuSuperiorComponent } from './menu-superior/menu-superior.component';
-import { PantallaClientesComponent } from './pantalla-clientes/pantalla-clientes.component';
-import { PantallaFacturasComponent } from './pantalla-facturas/pantalla-facturas.component';
-import { PantallaListadoFacturasComponent } from './pantalla-listado-facturas/pantalla-listado-facturas.component';
-import { PantallaLoginComponent } from './pantalla-login/pantalla-login.component';
-import { PopupCerrarSesionComponent } from './popup-cerrar-sesion/popup-cerrar-sesion.component';
-import { PopupMostrarProductosComponent } from './popup-mostrar-productos/popup-mostrar-productos.component';
-import { PopupMostrarClientesComponent } from './popup-mostrar-clientes/popup-mostrar-clientes.component';
+import { MenuSuperiorComponent } from './views/menu-superior/menu-superior.component';
+import { PantallaClientesComponent } from './views/pantalla-clientes/pantalla-clientes.component';
+import { PantallaFacturasComponent } from './views/pantalla-facturas/pantalla-facturas.component';
+import { PantallaListadoFacturasComponent } from './views/pantalla-listado-facturas/pantalla-listado-facturas.component';
+import { PantallaLoginComponent } from './views/pantalla-login/pantalla-login.component';
+import { PopupCerrarSesionComponent } from './views/popup-cerrar-sesion/popup-cerrar-sesion.component';
+import { PopupMostrarProductosComponent } from './views/popup-mostrar-productos/popup-mostrar-productos.component';
+import { PopupMostrarClientesComponent } from './views/popup-mostrar-clientes/popup-mostrar-clientes.component';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({

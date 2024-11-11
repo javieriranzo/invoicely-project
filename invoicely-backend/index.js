@@ -32,10 +32,22 @@ app.get('/api/clientes', (req, res) => {
         res.json(results);
       }
     });
+});
+
+// Ruta para obtener los datos de los clientes
+app.get('/api/productos', (req, res) => {
+  const query = 'SELECT * FROm productos'; 
+  db.query(query, (err, results) => {
+    if (err) {
+      res.status(500).send(err);
+    } else {
+      res.json(results); 
+    }
   });
+});
   
-  // Iniciar el servidor
-  const PORT = 3000;
-  app.listen(PORT, () => {
-    console.log(`Servidor escuchando en el puerto ${PORT}`);
-  });
+// Iniciar el servidor
+const PORT = 3000;
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en el puerto ${PORT}`);
+});

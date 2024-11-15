@@ -10,6 +10,7 @@ import { PopupCerrarSesionComponent } from './views/popup-cerrar-sesion/popup-ce
 import { PopupMostrarProductosComponent } from './views/popup-mostrar-productos/popup-mostrar-productos.component';
 import { PopupMostrarClientesComponent } from './views/popup-mostrar-clientes/popup-mostrar-clientes.component';
 import { Router, NavigationEnd } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -18,6 +19,7 @@ import { Router, NavigationEnd } from '@angular/router';
     RouterModule,
     MenuSuperiorComponent,
     CommonModule,
+    FormsModule,
     PantallaClientesComponent,
     PantallaFacturasComponent,
     PantallaListadoFacturasComponent,

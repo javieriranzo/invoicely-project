@@ -30,7 +30,7 @@ export class PantallaFacturasComponent {
   fechaActual: string = new Date().toISOString().split('T')[0];
   horaActual: string = new Date().toTimeString().slice(0, 5);
 
-  cliente = new Cliente();
+  cliente = new Cliente('', '', '', '', '', '', '', '', '', ''); 
   factura = new Factura(this.cliente);
 
   constructor() {}

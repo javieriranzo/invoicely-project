@@ -75,4 +75,35 @@
         </form>
     </div>
     <h2 class="mt-5">Listado clientes</h2>
+    <table class="table-auto w-full border-collapse border border-gray-300">
+        <thead>
+          <tr class="bg-gray-200">
+            <th class="border border-gray-300 px-4 py-2">Nombre</th>
+            <th class="border border-gray-300 px-4 py-2">Apellidos</th>
+            <th class="border border-gray-300 px-4 py-2">DNI/CIF</th>
+            <th class="border border-gray-300 px-4 py-2">Teléfono</th>
+            <th class="border border-gray-300 px-4 py-2">Email</th>
+            <th class="border border-gray-300 px-4 py-2">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cliente of clientes">
+            <td class="border border-gray-300 px-4 py-2">{{ cliente.nombre }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ cliente.apellido }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ cliente.dniCif }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ cliente.telefono }}</td>
+            <td class="border border-gray-300 px-4 py-2">{{ cliente.email }}</td>
+            <td class="border border-gray-300 px-4 py-2 relative">
+              <button (click)="toggleMenu(cliente)" class="p-2">
+                &#8286; <!-- Icono de 3 puntos verticales -->
+              </button>
+              <div *ngIf="cliente.menuOpen" class="absolute right-0 bg-white border shadow-md p-2">
+                <button (click)="editarCliente(cliente)" class="block px-4 py-2 hover:bg-gray-100">Editar</button>
+                <button (click)="eliminarCliente(cliente.id)" class="block px-4 py-2 hover:bg-red-100 text-red-500">Eliminar</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+    </table>
+      
 </div>

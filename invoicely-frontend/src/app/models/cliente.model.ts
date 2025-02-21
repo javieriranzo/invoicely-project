@@ -12,18 +12,7 @@ export class Cliente {
     telefono: string;
     email: string;
 
-  constructor(
-    nombre: string,
-    apellido: string,
-    dniCif: string,
-    direccion: string,
-    codigoPostal: string,
-    poblacion: string,
-    provincia: string,
-    pais: string,
-    telefono: string,
-    email: string
-  ) {
+  constructor(nombre: string, apellido: string, dniCif: string, direccion: string, codigoPostal: string, poblacion: string, provincia: string, pais: string, telefono: string,email: string) {
     this.nombre = nombre; 
     this.apellido = apellido;
     this.dniCif = dniCif;

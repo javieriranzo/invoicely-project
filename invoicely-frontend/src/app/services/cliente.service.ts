@@ -21,5 +21,4 @@ export class ClienteService {
   crearCliente(cliente: Cliente): Observable<Cliente> {
     return this.http.post<Cliente>(this.apiUrl, cliente);
   }
-  
 }

@@ -22,8 +22,8 @@ import { LineaFactura } from '../../models/linea-factura.model';
 
 export class PantallaFacturasComponent {
   
-  mostrarPopupProductos = false;
-  mostrarPopupClientes = false;
+  mostrarPopupProductos: boolean = false;
+  mostrarPopupClientes: boolean = false;
 
   numeroFactura: number = 0;
   anoActual: number = new Date().getFullYear();

@@ -12,8 +12,7 @@ import { FormsModule } from '@angular/forms';
     MenuSuperiorComponent, 
     FormsModule
   ],
-  providers: [
-    provideHttpClient(), 
+  providers: [ 
     ClienteService
   ],
   templateUrl: './pantalla-clientes.component.html',

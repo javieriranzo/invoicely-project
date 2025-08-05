@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,7 +22,6 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @NotBlank(message = "First name is required")
     private String firstName;
     @NotBlank(message = "Last name is required")
@@ -30,9 +29,11 @@ public class Customer {
     @Email(message = "Email should be valid")
     @NotBlank(message = "Email is required")
     private String email;
-    @Size(max = 9, message = "Phone number cannot exceed 9 digits")
+    @NotBlank(message = "DNI is required")
+    private String dni;
+    @Pattern(regexp = "^\\d{9}$", message = "El teléfono no es correcto")
     @NotBlank(message = "Phone number is required")
-    private Integer phoneNumber;
+    private String phoneNumber;
     @NotBlank(message = "Address is required")
     private String address;
     @NotBlank(message = "City is required")

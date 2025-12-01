@@ -1,0 +1,27 @@
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="card p-4 shadow" style="min-width: 300px; max-width: 400px; width: 100%;">
+  
+    <h3 class="text-center mb-4">INVOICELY APPLICATION</h3>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <div class="mb-3">
+        <label class="form-label">Usuario</label>
+        <input formControlName="usuario" type="text" class="form-control"
+               [class.is-invalid]="loginForm.controls.usuario.touched && loginForm.controls.usuario.invalid">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Contraseña</label>
+        <input formControlName="password" type="password" class="form-control"
+               [class.is-invalid]="loginForm.controls.password.touched && loginForm.controls.password.invalid">
+      </div>
+
+      <div *ngIf="errorMessage" class="alert alert-danger p-2">
+        {{ errorMessage }}
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100">Entrar</button>
+    </form>
+  </div>
+</div>

@@ -1,50 +1,54 @@
 package com.invoicely.backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Table(name = "customer")
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
-@AllArgsConstructor
 public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cs_id", nullable = false, updatable = false)
     private Long id;
-    @NotBlank(message = "First name is required")
+
+    @Column(name = "cs_client_type", nullable = false, updatable = false, length = 150)
+    private String clientType;
+
+    @Column(name = "cs_first_name", nullable = false, length = 150)
     private String firstName;
-    @NotBlank(message = "Last name is required")
+
+    @Column(name = "cs_last_name", length = 150)
     private String lastName;
-    @Email(message = "Email should be valid")
-    @NotBlank(message = "Email is required")
+
+    @Column(name = "cs_identification_document", length = 20)
+    private String identificationDocument;
+
+    @Column(name = "cs_identification_number", length = 50)
+    private String identificationNumber;
+
+    @Column(name = "cs_email", length = 150)
     private String email;
-    @NotBlank(message = "DNI is required")
-    private String dni;
-    @Pattern(regexp = "^\\d{9}$", message = "El teléfono no es correcto")
-    @NotBlank(message = "Phone number is required")
+
+    @Column(name = "cs_phone_number", length = 30)
     private String phoneNumber;
-    @NotBlank(message = "Address is required")
+
+    @Column(name = "cs_address", length = 255)
     private String address;
-    @NotBlank(message = "City is required")
+
+    @Column(name = "cs_zip_code", length = 20)
+    private String zipCode;
+
+    @Column(name = "cs_city", length = 100)
     private String city;
-    @NotBlank(message = "State is required")
-    private String state;
-    @NotBlank(message = "Country is required")
+
+    @Column(name = "cs_country", length = 100)
     private String country;
-    @NotBlank(message = "Postal code is required")
-    private String postalCode;
 
 }
-
-

@@ -1,16 +1,15 @@
 package com.invoicely.backend.service;
 
-import com.invoicely.backend.model.Customer;
+import com.invoicely.backend.repository.CustomerRepository;
 
-import java.util.List;
-import java.util.Optional;
+public class CustomerService {
 
-public interface CustomerService {
+    private final CustomerRepository customerRepository;
 
-    Customer save(Customer customer);
-    Customer update(Long id, Customer updateCustomer);
-    void delete(Long id);
-    Optional<Customer> findById(Long id);
-    List<Customer> findAll();
+    public CustomerService(CustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
+    public
 
 }

@@ -3,10 +3,7 @@ package com.invoicely.backend.controller;
 import com.invoicely.backend.model.Customer;
 import com.invoicely.backend.service.CustomerService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,14 +17,52 @@ public class CustomerController {
         this.customerService = customerService;
     }
 
-    @GetMapping
+    @GetMapping("/getAllCustomers")
     public List<Customer> getAllCustomers() {
-        return customerService.findAll();
+        try {
+            return customerService.findAll();
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/findCustomerById/{id}")
     public ResponseEntity<Customer> getCustomerById(@PathVariable Long id) {
-        return customerService.findById(id).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        try {
+            return customerService.findById(id).map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @PostMapping("/createNewCustomer")
+    public ResponseEntity<Customer> createCustomer(@RequestBody Customer customer) {
+        try {
+            Customer newCustomer = customerService.create(customer);
+            return ResponseEntity.ok(newCustomer);
+        } catch (RuntimeException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @PutMapping("/updateCustomerById/{id}")
+    public ResponseEntity<Customer> updateCustomer(@PathVariable Long id, @RequestBody Customer customer) {
+        try {
+            Customer updatedCustomer = customerService.update(id, customer);
+            return ResponseEntity.ok(updatedCustomer);
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping("/deleteCustomerById/{id}")
+    public ResponseEntity<Customer> deleteCustomer(@PathVariable Long id) {
+        try {
+            customerService.delete(id);
+            return ResponseEntity.ok().build();
+        } catch (RuntimeException e) {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }

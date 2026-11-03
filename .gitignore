@@ -1,0 +1,36 @@
+# Dependencias
+node_modules/
+
+# Builds y caché
+dist/
+build/
+coverage/
+.turbo/
+*.tsbuildinfo
+.vite/
+
+# Secretos (ADR-0025): nunca versionar .env reales
+.env
+.env.*
+!.env.example
+
+# Playwright
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor / SO
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Claude Code: configuración local personal (la de proyecto sí se versiona)
+.claude/settings.local.json

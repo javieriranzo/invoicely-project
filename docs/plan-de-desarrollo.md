@@ -22,11 +22,11 @@ verde y su documentación actualizada.
 - Verificado en local y en GitHub Actions (ejecución 41552795304, commit 059e2b7, en verde).
 - Movido a la fase 2: evaluación de las skills oficiales `shadcn` y `playwright-cli` (se usan con shadcn/ui y los primeros flujos E2E reales).
 
-### Fase 2 — Diseño funcional
+### Fase 2 — Diseño funcional (pendiente de aprobación visual)
 - ✅ Cuestiones de negocio 1–11 y 24 resueltas (2026-11-03). Cuestión 28 resuelta. Pendientes de la gestoría: 12–15, 26, 27, 29.
 - Actualizar las specs mediante cambios de OpenSpec.
-- Sistema de diseño: paleta, tipografía, espaciados, iconografía, componentes base (skill `frontend-design`), con la identidad de Invoicely App.
-- Incorporar shadcn/ui y evaluar las skills oficiales `shadcn` y `playwright-cli`.
+- ✅ Sistema de diseño (2026-11-03, cambio `crear-sistema-de-diseno`): paleta azul sobria, Geist, logotipo, 21 componentes shadcn/ui sobre Base UI, página `/sistema-de-diseno`, accesibilidad comprobada con axe. Guía: `docs/sistema-de-diseno.md`.
+- ✅ Skills evaluadas: `shadcn` incorporada; `playwright-cli` no se adopta por ahora (ADR-0033).
 
 ### Fase 3 — Diseño de base de datos
 - Modelo completo en `schema.prisma` (entidades, relaciones, restricciones, índices), tipo de identificadores y de importes, usuarios de BD (migraciones vs. aplicación), diagrama E-R en `docs/base-de-datos.md`.

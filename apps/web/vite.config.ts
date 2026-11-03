@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [tanstackRouter({ target: 'react', autoCodeSplitting: true }), react(), tailwindcss()],
   resolve: {
     conditions: ['@invoicely/source'],
+    tsconfigPaths: true,
   },
   server: {
     host: '127.0.0.1',

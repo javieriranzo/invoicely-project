@@ -42,6 +42,8 @@ Estados posibles: `Propuesto` · `Aprobado` · `Rechazado` · `Sustituido por AD
 | [ADR-0030](0030-api-versionado-y-openapi.md) | Versionado de la API en la ruta y documentación OpenAPI | Aprobado | 2026-11-02 |
 | [ADR-0031](0031-eslint-plugin-jsx-a11y-x.md) | Reglas de accesibilidad con `eslint-plugin-jsx-a11y-x` | Aprobado | 2026-11-03 |
 | [ADR-0032](0032-vitest-sin-unplugin-swc.md) | Vitest sin `unplugin-swc` y paquete compartido desde el código fuente | Aprobado | 2026-11-03 |
+| [ADR-0033](0033-shadcn-base-ui-y-convenciones-de-interfaz.md) | shadcn/ui sobre Base UI, utilidades y convenciones de la interfaz | Aprobado | 2026-11-03 |
+| [ADR-0034](0034-accesibilidad-automatica-axe.md) | Comprobación automática de accesibilidad con axe en los tests E2E | Aprobado | 2026-11-03 |
 
 ## Plantilla
 

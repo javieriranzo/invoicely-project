@@ -38,6 +38,7 @@ Principios:
 - Tests junto al código (`*.test.ts[x]`); `src/modules/system` (web) y `src/modules/health` (API) son el ejemplo de referencia.
 - `apps/api/src/app.factory.ts` crea la aplicación (la usan `main.ts` y los tests); `src/config/env.ts` valida el entorno.
 - Desde `packages/shared` solo se exporta por `src/index.ts`; ESM con imports relativos terminados en `.js` en API y shared.
+- Web: alias `@/` → `apps/web/src`; rutas de la interfaz en español (`/clientes`, `/facturas`); componentes base en `src/components/ui` (shadcn/ui sobre Base UI) y marca en `src/components/brand` (ADR-0033). Guía visual: `docs/sistema-de-diseno.md`.
 
 ## Nombres
 - Archivos y carpetas: `kebab-case`.

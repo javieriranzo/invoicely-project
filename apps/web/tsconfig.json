@@ -7,7 +7,10 @@
     "jsx": "react-jsx",
     "noEmit": true,
     "customConditions": ["@invoicely/source"],
-    "types": ["vite/client", "node"]
+    "types": ["vite/client", "node"],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src", "vite.config.ts"]
 }

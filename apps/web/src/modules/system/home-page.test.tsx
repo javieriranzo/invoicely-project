@@ -1,30 +1,21 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { renderWithProviders } from '@/test/render-with-providers';
 import { HomePage } from './home-page';
-
-function renderHomePage() {
-  const queryClient = new QueryClient({ defaultOptions: { queries: { retry: false } } });
-  render(
-    <QueryClientProvider client={queryClient}>
-      <HomePage />
-    </QueryClientProvider>,
-  );
-}
 
 describe('HomePage (requisito: Comprobación de salud del sistema)', () => {
   afterEach(() => {
     vi.unstubAllGlobals();
   });
 
-  it('muestra el nombre de Invoicely App', () => {
+  it('muestra el nombre de Invoicely App', async () => {
     vi.stubGlobal(
       'fetch',
       vi.fn(() => new Promise(() => {})),
     );
-    renderHomePage();
+    renderWithProviders(HomePage);
 
-    expect(screen.getByRole('heading', { name: 'Invoicely App' })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'Invoicely App' })).toBeInTheDocument();
   });
 
   it('indica en español que el servicio está disponible', async () => {
@@ -32,7 +23,7 @@ describe('HomePage (requisito: Comprobación de salud del sistema)', () => {
       'fetch',
       vi.fn(() => Promise.resolve(Response.json({ status: 'ok' }))),
     );
-    renderHomePage();
+    renderWithProviders(HomePage);
 
     expect(await screen.findByText('El servicio está disponible.')).toBeInTheDocument();
   });
@@ -42,7 +33,7 @@ describe('HomePage (requisito: Comprobación de salud del sistema)', () => {
       'fetch',
       vi.fn(() => Promise.resolve(new Response(null, { status: 503 }))),
     );
-    renderHomePage();
+    renderWithProviders(HomePage);
 
     expect(await screen.findByText(/El servicio no está disponible/)).toBeInTheDocument();
   });

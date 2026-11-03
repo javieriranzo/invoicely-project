@@ -23,7 +23,7 @@ interfaz **solo en español**. Mantén el nombre "Invoicely App" en documentaci�
 ## Stack aprobado (detalle y versiones en `docs/adr/`)
 
 - Arquitectura: SPA + API REST independiente en monorepo pnpm (ADR-0003, 0006). Node.js 26 (`.nvmrc`), TypeScript 6.0 estricto (ADR-0004).
-- Frontend: React 19 + Vite 8, Tailwind CSS 4 + shadcn/ui, TanStack Router, TanStack Query (sin estado global), React Hook Form (ADR-0007, 0011–0014).
+- Frontend: React 19 + Vite 8, Tailwind CSS 4 + shadcn/ui sobre Base UI (skill `shadcn`), TanStack Router, TanStack Query (sin estado global), React Hook Form (ADR-0007, 0011–0014, 0033). Reglas visuales en `docs/sistema-de-diseno.md`; solo modo claro; accesibilidad WCAG 2.2 AA comprobada con axe (ADR-0034).
 - Backend: NestJS 12 sobre Fastify, validación Zod 4 nativa (`StandardSchemaValidationPipe`, sin `nestjs-zod`), Pino, OpenAPI con `@nestjs/swagger`, API en `/api/v1` (ADR-0008, 0010, 0027, 0030).
 - Datos: PostgreSQL 18, Prisma **7.10.1 fijado** (nunca instalar sin versión: `latest` es una RC), auditoría en la aplicación (ADR-0005, 0009, 0029).
 - Autenticación: propia, sesiones en servidor con cookie `HttpOnly`, Argon2id, correo por SMTP (Mailpit en desarrollo) (ADR-0015–0018).

@@ -23,4 +23,4 @@ Máximo control para un sistema de diseño propio; encaje con `frontend-design`,
 ## Consecuencias
 - Los componentes generados pasan a ser código del proyecto y se mantienen como tal.
 - El sistema de diseño (paleta, tipografía, espaciados, iconografía) se presentará para aprobación en la fase de diseño.
-- Skill oficial `shadcn`: pendiente de decisión sobre su incorporación.
+- Skill oficial `shadcn`: incorporada (ADR-0033). Primitivas Base UI, fuente y utilidades: ADR-0033.

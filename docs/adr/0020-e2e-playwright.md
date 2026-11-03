@@ -20,4 +20,5 @@ Cubre la verificación multi-dispositivo exigida sin coste.
 
 ## Consecuencias
 - Proyectos de Playwright para escritorio, tablet y móvil.
-- Skill oficial `playwright-cli` (Microsoft): evaluada; requiere instalar `@playwright/cli`. Se propondrá al crear el esqueleto del proyecto.
+- Skill oficial `playwright-cli` (Microsoft): evaluada; no se adopta por ahora (ADR-0033).
+- Accesibilidad automática con axe en los tests E2E (ADR-0034).

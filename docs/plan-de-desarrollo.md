@@ -19,11 +19,11 @@ verde y su documentación actualizada.
 ### Fase 1 — Preparación del entorno y arquitectura ✅
 - ✅ Entorno, skills, OpenSpec, ADR, specs iniciales, documentación base.
 - ✅ **Esqueleto del monorepo** (2026-11-03, cambio `crear-esqueleto-monorepo`): `apps/web`, `apps/api`, `packages/shared`, `e2e/`; TypeScript, ESLint, Prettier, Vitest, Playwright; `compose.yaml` (PostgreSQL 18 + Mailpit); endpoint de salud; CI en GitHub Actions.
-- Verificado en local: lint, tipos, formato, tests de cada nivel. ⚠️ **Pendiente:** primera ejecución de la CI en GitHub (requiere commit y push).
+- Verificado en local y en GitHub Actions (ejecución 41552795304, commit 059e2b7, en verde).
 - Movido a la fase 2: evaluación de las skills oficiales `shadcn` y `playwright-cli` (se usan con shadcn/ui y los primeros flujos E2E reales).
 
 ### Fase 2 — Diseño funcional
-- Resolver con el responsable las cuestiones abiertas de negocio (`docs/cuestiones-abiertas.md`, 1–15 y 24).
+- ✅ Cuestiones de negocio 1–11 y 24 resueltas (2026-11-03). Cuestión 28 resuelta. Pendientes de la gestoría: 12–15, 26, 27, 29.
 - Actualizar las specs mediante cambios de OpenSpec.
 - Sistema de diseño: paleta, tipografía, espaciados, iconografía, componentes base (skill `frontend-design`), con la identidad de Invoicely App.
 - Incorporar shadcn/ui y evaluar las skills oficiales `shadcn` y `playwright-cli`.
@@ -38,9 +38,10 @@ verde y su documentación actualizada.
 
 ### Fase 5 — Productos y categorías
 ### Fase 6 — Clientes
-### Fase 7 — Proveedores
+### ~~Fase 7 — Proveedores~~ (eliminada el 2026-11-03: no se gestionan proveedores)
 ### Fase 8 — Pedidos
-Cada una: CRUD con listados (búsqueda, filtros, orden, paginación), permisos, auditoría, tests y documentación.
+Fases 5, 6 y 8: CRUD con listados (búsqueda, filtros, orden, paginación), permisos, auditoría, tests y documentación.
+- Fase 8: Solo pedidos de venta, sin enlace con facturas ni control de stock (spec `orders`, 2026-11-03).
 
 ### Fase 9 — Facturación
 - 9a Configuración de empresa, tipos impositivos con vigencia y series.
@@ -51,6 +52,7 @@ Cada una: CRUD con listados (búsqueda, filtros, orden, paginación), permisos, 
 
 ### Fase 10 — Pagos
 ### Fase 11 — Dashboard e informes
+- Indicadores, listados e informe de facturas por periodo exportable a CSV, Excel y PDF (spec `reports`, 2026-11-03).
 ### Fase 12 — Endurecimiento de seguridad y auditoría
 - Escaneo con `claude-security`, revisión OWASP ASVS, revisión de la auditoría, pruebas de restauración de copias.
 
@@ -59,6 +61,6 @@ Cada una: CRUD con listados (búsqueda, filtros, orden, paginación), permisos, 
 
 ## Primeras tareas recomendadas
 
-1. Decidir la visibilidad del repositorio (cuestión 25), hacer el primer commit y comprobar la CI en GitHub.
+1. Decidir la visibilidad del repositorio (cuestión 25).
 2. Sesión de preguntas de negocio por bloques (fase 2).
 3. Sistema de diseño e incorporación de shadcn/ui (fase 2).

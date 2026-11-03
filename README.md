@@ -1,6 +1,6 @@
 # Invoicely App
 
-ERP ligero para pequeñas empresas que operan en España: clientes, proveedores, productos,
+ERP ligero para pequeñas empresas que operan en España: clientes, productos,
 pedidos, facturación conforme a la normativa española, pagos, informes y auditoría, con
 autenticación y permisos por rol. Aplicación web (SPA) responsive, en español.
 

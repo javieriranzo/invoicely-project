@@ -14,7 +14,7 @@ Instrucciones permanentes para Claude Code. No duplicar aquí lo que ya vive en 
 
 **Invoicely App** es un ERP ligero (SPA) para una pequeña empresa que opera en **España**
 (territorio común). Módulos: autenticación, dashboard, usuarios, roles y permisos, productos,
-categorías, clientes, proveedores, pedidos, facturas, pagos, impuestos, informes,
+categorías, clientes, pedidos, facturas, pagos, impuestos, informes,
 configuración de empresa y auditoría. Se desarrolla por fases (`docs/plan-de-desarrollo.md`).
 
 Idioma: documentación, specs, ADR y commits en **español**; código, API y BD en **inglés**;

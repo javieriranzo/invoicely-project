@@ -1,6 +1,6 @@
 ---
 name: business-domain
-description: Modelo de dominio de Invoicely App (entidades, relaciones, procesos, estados y glosario ES→EN). Usar al diseñar o implementar cualquier funcionalidad de negocio (productos, clientes, proveedores, pedidos, facturas, pagos, usuarios, roles), al nombrar entidades en código/BD/API o al detectar una regla de negocio no definida.
+description: Modelo de dominio de Invoicely App (entidades, relaciones, procesos, estados y glosario ES→EN). Usar al diseñar o implementar cualquier funcionalidad de negocio (productos, clientes, pedidos, facturas, pagos, usuarios, roles), al nombrar entidades en código/BD/API o al detectar una regla de negocio no definida.
 ---
 
 # Dominio de negocio de Invoicely App
@@ -32,8 +32,7 @@ al responsable del proyecto. Una suposición razonable sigue siendo una suposici
 | Producto | `Product` | Bien o servicio vendible |
 | Categoría | `ProductCategory` | Clasificación de productos |
 | Cliente | `Customer` | Destinatario de facturas |
-| Proveedor | `Supplier` | Proveedor de la empresa |
-| Pedido | `Order` / `OrderLine` | Ver cuestiones abiertas (venta/compra) |
+| Pedido | `Order` / `OrderLine` | Solo pedidos de venta (spec `orders`) |
 | Factura | `Invoice` / `InvoiceLine` | Ver skill `invoicing-management` |
 | Factura rectificativa | `CorrectiveInvoice` (o `Invoice` con `type`) | Decisión de diseño pendiente |
 | Serie de facturación | `InvoiceSeries` | |
@@ -46,13 +45,12 @@ al responsable del proyecto. Una suposición razonable sigue siendo una suposici
 ```
 Company 1───* InvoiceSeries
 User *───* Role *───* Permission
-ProductCategory 1───* Product            (¿jerarquía de categorías? → abierta)
-Customer 1───* Order 1───* OrderLine *───1 Product
-Customer 1───* Invoice 1───* InvoiceLine
+ProductCategory 0..1───* Product        (un nivel, categoría opcional)
+Customer 1───* Order 1───* OrderLine *───1 Product   (pedido de venta; sin relación con Invoice)
+Customer 0..1───* Invoice 1───* InvoiceLine   (simplificada sin cliente; snapshot de datos)
 Invoice *───1 InvoiceSeries
-Invoice 1───* Payment                     (¿pagos parciales / un pago a varias facturas? → abierta)
+Invoice 1───* Payment                     (un solo pago vigente; los anulados se conservan)
 Invoice (rectificativa) *───1 Invoice (rectificada)
-Supplier ───  (relación con productos/pedidos de compra → abierta)
 AuditLog ─── referencia a cualquier entidad auditada
 ```
 
@@ -64,18 +62,30 @@ AuditLog ─── referencia a cualquier entidad auditada
 - Roles iniciales a estudiar: Administrador, Gerente, Empleado, Usuario de consulta.
   Los permisos son configurables; no todos los roles tienen los mismos.
 - La interfaz es solo en español.
+- **Pedidos (2026-11-03):** solo de venta; sin relación con las facturas (el estado `Facturado`
+  se marca a mano); estados `Borrador`/`Confirmado`/`Facturado`/`Cancelado` con transiciones en la
+  spec `orders`; edición solo en `Borrador`; se eliminan solo en `Borrador` o `Cancelado`. Glosario: `draft`, `confirmed`, `invoiced`, `cancelled`.
+- **Clientes (2026-11-03):** sobre todo particulares, también empresas; de España, UE y resto del
+  mundo. Ficha: nombre (obligatorio), tipo e identificación fiscal (`es_nif`, `eu_vat`, `foreign`),
+  país, domicilio, contacto, correo y teléfono. Se eliminan salvo que tengan pedidos o facturas en borrador; las facturas emitidas
+  conservan la copia de sus datos.
+- **Facturas completas y simplificadas (2026-11-03):** la simplificada puede no tener cliente; series separadas.
+- **Productos (2026-11-03):** código único, nombre, descripción, tipo (`good`/`service`), unidad,
+  precio único **con IVA incluido**, tipo de IVA, categoría opcional. Sin tarifas. Se eliminan si no
+  están en pedidos; si lo están, se desactivan. Líneas con precio editable y descuento % por línea.
+- **Categorías (2026-11-03):** un nivel, nombre único; se eliminan solo si están vacías.
+- **Pagos (2026-11-03):** un único pago por factura y por su total; forma de pago de lista fija
+  (`cash`, `card`, `bank_transfer`, `bizum`, `direct_debit`); se anula (no se borra); estados de
+  cobro `Pendiente`/`Pagada`; sin vencimientos.
+- **Alcance (2026-11-03):** una sola empresa emisora; sin proveedores ni facturas recibidas (gastos).
+- **Dashboard e informes (2026-11-03):** ver spec `reports` (facturación mes/año, pedidos pendientes,
+  gráfico 12 meses, últimas facturas, pendientes de cobro; informe de facturas por periodo en CSV/Excel/PDF).
+- **Stock (2026-11-03):** no se controlan existencias; los productos son un catálogo.
 
 ## Cuestiones abiertas (requieren decisión del responsable)
 
-1. ¿Los pedidos son solo de venta, solo de compra a proveedores, o ambos?
-2. Flujo pedido → factura: ¿una factura por pedido, varias, agrupación de pedidos?
-3. Estados de pedido (p. ej. borrador, confirmado, servido, cancelado): por definir.
-4. ¿Gestión de stock/inventario? (no solicitada hasta ahora).
-5. ¿Clientes particulares (sin NIF) además de empresas? Afecta a factura simplificada.
-6. ¿Pagos parciales? ¿Un pago puede cubrir varias facturas?
-7. ¿Multiempresa (varias empresas en una instalación)? Por defecto se asume **una** empresa.
-8. ¿Facturas recibidas de proveedores (gastos) entran en alcance?
-9. ¿Precios con varias tarifas, descuentos por línea o por documento?
+Las de negocio 1–11 están resueltas (ver "Acordado"). Las pendientes están en
+`docs/cuestiones-abiertas.md` (fuente única).
 
 Al resolver una cuestión: actualiza la spec en OpenSpec y mueve el punto a "Acordado".
 

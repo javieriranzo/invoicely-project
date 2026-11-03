@@ -39,7 +39,8 @@ inversión del sujeto pasivo, etc.). Validar el texto vigente del art. 6 antes d
 ### Factura simplificada (arts. 4 y 7)
 - Hasta **400 € IVA incluido**, o hasta **3.000 €** en los sectores del art. 4.1.b (comercio minorista, hostelería, transporte de personas, etc.).
 - No admitida en ciertas operaciones (p. ej. entregas intracomunitarias, art. 4.4).
-- Si se usa: serie propia. **¿Se usará factura simplificada? → cuestión abierta.**
+- **Acordado (2026-11-03): se usa**, junto con la completa; serie propia; puede no tener cliente. Límite configurable (400 € por defecto); si aplica el de 3.000 € lo confirma la gestoría (cuestión 12).
+- Hay clientes en la UE y fuera de ella: las reglas de IVA intracomunitario y exportación son cuestión abierta 12.
 
 ### Plazo de expedición (art. 11)
 - En el momento de la operación; si el destinatario es empresario/profesional, **antes del día 16 del mes siguiente** al devengo.
@@ -70,19 +71,20 @@ registros a la AEAT).
 
 ## Inmutabilidad y trazabilidad (requisito del proyecto)
 
-- Estados mínimos propuestos: `draft` → `issued` → (`paid` / `partially_paid` / `overdue`) ; `issued` → rectificada (por otra factura). **Pendiente de aprobación** en la spec de facturas.
+- Estados mínimos propuestos: `draft` → `issued` (cobro: `pending` / `paid`) ; `issued` → rectificada (por otra factura). **Pendiente de aprobación** en la spec de facturas.
 - Un `draft` es editable y eliminable. Una factura `issued` **no se modifica ni se borra** jamás: solo cambia su estado de cobro y se puede rectificar.
 - El Reglamento SIF exige registros de facturación encadenados (huella/hash) y QR en la factura en ambas modalidades, y además firma y registro de eventos en la modalidad NO VERI*FACTU; diseñar el modelo **desde el inicio** para no tener que migrar. Detalle técnico: investigar las especificaciones de la AEAT antes de la fase de facturación.
 
 ## IVA
+
+- **Precios con IVA incluido (acordado 2026-11-03):** la base y la cuota se calculan a partir del precio final; el método de redondeo está pendiente (cuestión 29) y debe documentarse antes de implementarlo. Descuento % por línea.
 
 - Tipos generales vigentes a verificar al implementar (general, reducido, superreducido, exento). **No codificar tipos fijos**: los tipos son datos configurables con vigencia temporal.
 - Recargo de equivalencia, IRPF en facturas de profesionales, inversión del sujeto pasivo, operaciones intracomunitarias: **cuestiones abiertas** (dependen de la actividad de la empresa).
 
 ## Pagos y vencimientos
 
-- Vencimiento y condiciones de pago: por definir con el responsable (Ley 3/2004 de morosidad establece plazos máximos B2B; verificar antes de aplicar).
-- Estados de cobro derivados de la suma de pagos registrados; cada pago se audita.
+- **Acordado (2026-11-03):** pago único por el total, sin pagos parciales ni vencimientos; estados `Pendiente`/`Pagada`; los pagos se anulan, no se borran; cada pago y anulación se audita.
 
 ## Checklist antes de dar por terminada una tarea de facturación
 

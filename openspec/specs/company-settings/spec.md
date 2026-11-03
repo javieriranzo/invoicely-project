@@ -15,3 +15,10 @@ Los usuarios con el permiso correspondiente SHALL poder configurar los datos de 
 #### Scenario: Cambio de datos de empresa
 - **WHEN** se modifican los datos de la empresa
 - **THEN** las facturas ya emitidas conservan los datos vigentes en su emisión y el cambio queda auditado
+
+### Requirement: Empresa única
+Cada instalación de Invoicely App SHALL gestionar una única empresa emisora; todas las facturas, series, clientes, productos y pedidos pertenecen a ella.
+
+#### Scenario: Configuración de la empresa
+- **WHEN** un usuario autorizado abre la configuración de empresa
+- **THEN** edita los datos de la única empresa emisora, sin opción de crear otras

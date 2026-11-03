@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
+    "customConditions": ["@invoicely/source"],
+    "types": ["node"]
+  },
+  "include": ["src", "vitest.config.ts"]
+}

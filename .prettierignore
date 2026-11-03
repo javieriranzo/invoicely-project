@@ -1,0 +1,10 @@
+pnpm-lock.yaml
+dist
+coverage
+playwright-report
+test-results
+**/routeTree.gen.ts
+openspec
+docs
+.claude
+*.md
